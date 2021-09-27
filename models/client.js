@@ -3,12 +3,18 @@ const { Schema , model } = mongoose
 
 
 const clientSchema = new Schema({
-  name: {type: String, required: true},
-  color: {type: String, required: true},
-  readyToEat: {type: Boolean, default: false}
+  clientName: {type: String, required: true},
+  review: {type: String, required: true},
+//{
+//     incidentReport: {type: String, required: true},
+//     reportingCompany: {type: String, required: true},
+//     reportingEmployeeTitle:{type: String, required: true} }
+
+  
+
 })
 
 // "model()" will initialized the collection
-const Client = model('Client', clientSchema)
+const Client = model('client', clientSchema)
 //            collection name
 module.exports = Client
