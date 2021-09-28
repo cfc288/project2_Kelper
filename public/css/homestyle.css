@@ -1,0 +1,14 @@
+body{
+    background-color: aquamarine;
+}
+
+div.title {
+    text-align: center;
+    margin-top: 8%;
+}
+
+div.secondTitle{
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}

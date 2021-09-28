@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+
+       <h1>Client Show Page</h1>
+        <h2> <%=client.name %> </h2>
+        
+        
+        <p> <%=client.review %> </p>
+    
+        <br/>
+
+        <form action="/clients/<%= client.id %>/edit">
+        <input id="button"
+        type='submit' value="Edit">
+        </form>
+        
+        <br/>
+
+        <form action="/clients/<%= client.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+        </form>
+
+        <a href="/clients/index"> Back to Main Page</a>
+
+
+<%- include('./partials/footer.ejs') %>

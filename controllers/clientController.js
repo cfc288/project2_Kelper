@@ -13,7 +13,7 @@ const authRequired = (req, res, next) => {
 	}
 }
 
-
+//index route
 // set up index list all of the clients
 router.get('/index', (req, res) => {
 
@@ -26,40 +26,21 @@ router.get('/index', (req, res) => {
 
 })
 
-// set up New ROUTE "new.ejs"
+
+
+// set up NEW route 
+//"new.ejs"
 router.get('/new', (req, res) => {
   res.render('newclient.ejs')
 })
 
-
-router.get('/seed', (req, res) => {
-  // seed our database -- adding data for testing
-
-  // think about what we want in our database to start
-  // in case lets just add 3 fruits to start
-
-  Client.create([
-    {
-        clientName: 'Karen',
-        review: 'review here',
-      
-    },
-
-  ], 
-  (err, data) => {
-    if (err) {
-      console.log(err)
-    }
-    res.redirect('/clients/index')
-  })
-})
 
 
 // set up show route -- GET /fruits/:id -- info about JUST ONE fruit
 router.get('/:id', (req, res) => {
   Client.findById(req.params.id, (error, foundClient) => {
     console.log(foundClient)
-    res.render('show.ejs', { client: foundClient })
+    res.render('clientpage.ejs', { client: foundClient })
   })
 })
 
@@ -99,7 +80,7 @@ router.delete('/:id', (req, res) => {
       res.send(error)
     } else {
      // redirect to the index page if the delete successful
-     res.redirect('/index')
+     res.redirect('/clients/index')
     }
   })
 })
@@ -107,15 +88,12 @@ router.delete('/:id', (req, res) => {
 
 
 // make an edit page and a route to it
-// create an edit.ejs view
-// link to the edit page from each of the fruits
 router.get('/:id/edit', authRequired, (req, res) => {
   Client.findById(req.params.id, (error, foundClient) => {
     if (error) {
       console.log(error)
       res.send(error)
     } else {
-      // make the edit form show the existing data
       res.render('edit.ejs', {
         client: foundClient,
       })
@@ -123,9 +101,10 @@ router.get('/:id/edit', authRequired, (req, res) => {
   })
 })
 
-//update route
+
+//"update" route
 router.put('/:id', (req, res) => {
-//   req.body.readyToEat = (req.body.readyToEat === 'on')
+
   // makes route update the model
   Client.findByIdAndUpdate(
     req.params.id, 
@@ -134,19 +113,15 @@ router.put('/:id', (req, res) => {
       new: true,
     },
     (error, updatedClient) => {
-      // findByIdAndUpdate updates a fruit with a given id
-      // the new option means we want the update fruit
-      // without this flag, we'll get the fruit as it was
-      // before the update
 
+    let clientId = req.params.id
       if (error) {
         console.log(error)
         res.send(error)
       } else {
-        // redirect to the index route
-        res.redirect('/index')
+        res.redirect(`/clients/${clientId}`)
       }
-    } )
+    })
 })
 
 module.exports = router

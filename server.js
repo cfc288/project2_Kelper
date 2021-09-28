@@ -37,7 +37,6 @@ mongoose.connect(mongoURI, {
 })
 
 
-
 db.on('error', (err) => {console.log('Error: ', err) })
 db.on('connected', () => {console.log('mongo (and db) connected') })
 db.on('disconnected', () => {console.log('mongo (and db) disconnected') })
@@ -50,8 +49,8 @@ app.use(express.urlencoded({ extended: true }))
 // This will allow us to make DELETE and PUT requests
 app.use(methodOverride('_method'))
 
-//
-
+//adds css files
+app.use(express.static('public'))
 
 const SESSION_SECRET = process.env.SESSION_SECRET
 console.log('Here\'s SESSION_SECRET')
@@ -91,7 +90,9 @@ app.get('/', (req, res) => {
   res.render('home.ejs')
 })
 
-
+app.get('/about', (req, res) => {
+  res.render('about.ejs')
+})
 
 // CONTROLLERS
 
@@ -100,20 +101,13 @@ app.get('/', (req, res) => {
 // use them with app.use
 // app.use('/example', exampleController)
 
+
+
 const clientController = require('./controllers/clientController')
 app.use('/clients', clientController)
 
 const userController = require('./controllers/userController')
 app.use('/users', userController)
-
-// const client = require('./models/client')
-// app.use('/client')
-
-
-
-
-
-
 
 
 

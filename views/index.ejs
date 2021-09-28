@@ -1,17 +1,28 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body>
+<%- include('./partials/header.ejs') %>
+
+
     <h1>Index Page</h1>          
-    <a href="/users/signout">Sign Out</a>
+    
 
+    <ul>
+      <% for (let i = 0; i < clients.length; i++) { %>
+        <li>
+          <p>Client Name:
+          <a href="/clients/<%=clients[i].id%>"> <%=clients[i].clientName%> </a>
+          </p>
+      
+          <p>Incident Report: <br/>
+          <%= clients[i].review %> </p>
 
+        </li>
+        <% } %>
+    </ul>
    
 
-
+<form action="/clients/new">
+<input id="button" class="btn btn-dark"
+type='submit' value="New Client">
+</form>
     
-    <a href="/clients/new">Create a New Client</a>
-  </body>
-</html>
+
+<%- include('./partials/footer.ejs') %>

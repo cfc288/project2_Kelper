@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-	<title>User Registration</title>
-</head>
+<%- include('../partials/header.ejs') %>
+
 <body>
 	<h1>Sign In</h1>
 	<form action="/users/signin" method="POST">
@@ -14,7 +11,11 @@
 			<label for="password">Password:</label>
 			<input type="password" name="password" id="password">
 		</fieldset>
-		<input type="submit" value="Sign In">
+		<input type="submit" class="btn btn-dark" value="Sign In">
 	</form>
-</body>
-</html>
+
+
+
+
+
+<%- include('../partials/footer.ejs') %>
