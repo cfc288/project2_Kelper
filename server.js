@@ -5,7 +5,7 @@ const methodOverride = require('method-override')
 
 require('dotenv').config();
 // let's move our PORT to .env too
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 //for cookies 
 //install npm i express-sessions
@@ -111,6 +111,6 @@ app.use('/users', userController)
 
 
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server is listening on PORT: ${PORT}`)
 })
