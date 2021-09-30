@@ -1,14 +1,66 @@
 body{
-    background-color: aquamarine;
+background-image: url(../pics/seaweed.webp);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-div.title {
+.main {
+    position: relative;
+    z-index: 7;
+    margin-top: 7%;
+    margin-left: 38%;
+    position: fixed;
+}
+
+h1{
     text-align: center;
     margin-top: 8%;
+    font-family: 'Stick No Bills', sans-serif;
+    font-size: 800%;
+
 }
 
-div.secondTitle{
+h4 {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 3%;
+    border-bottom: 3px solid black;
+} 
+
+.buttons {
+    margin-top: 4%;
+}
+
+#button {
+    border: 2px solid black;
+}
+
+
+.allWeed {
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 2%;
+}
+
+.seaWeed {
+    display: inline-block; 
+}
+
+
+#imgWeed {
+    z-index: 4;
+    height: 550px;
+    width: 200px;
+    padding-top: 0%;
+}
+
+
+
+#thickImgWeed {
+    z-index: 3;
+    height: 450px;
+    width: 200px;
+    margin-top: 30%;
+    
 }

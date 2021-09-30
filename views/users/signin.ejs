@@ -2,17 +2,26 @@
 
 <body>
 	<h1>Sign In</h1>
+	<div class="signIn">
 	<form action="/users/signin" method="POST">
+
+		<div id="un">
 		<fieldset>
 			<label for="username">Username:</label>
 			<input type="text" name="username" id="username">
 		</fieldset>
+		</div>
+
+		<div id="pw">
 		<fieldset>
 			<label for="password">Password:</label>
 			<input type="password" name="password" id="password">
 		</fieldset>
+		</div>
+
 		<input type="submit" class="btn btn-dark" value="Sign In">
 	</form>
+	</div>
 
 
 

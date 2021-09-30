@@ -29,14 +29,14 @@ router.get('/index', (req, res) => {
 
 
 // set up NEW route 
-//"new.ejs"
+//"newclient.ejs"
 router.get('/new', (req, res) => {
   res.render('newclient.ejs')
 })
 
 
 
-// set up show route -- GET /fruits/:id -- info about JUST ONE fruit
+// SHOW route
 router.get('/:id', (req, res) => {
   Client.findById(req.params.id, (error, foundClient) => {
     console.log(foundClient)

@@ -21,7 +21,7 @@ const mongoose = require('mongoose')
 
 //basiccrud is the name of the database we will use/create
 //if it exists it will link to it, if it doesnt it will create it
-const mongoURI = process.env.MONGODB_URI
+const mongoURI = process.env.MONGODB_URI || 3000
 
 //to connect to DB
 const db = mongoose.connection

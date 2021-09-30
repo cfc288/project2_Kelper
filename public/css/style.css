@@ -1,3 +1,29 @@
 body{
-    background-color: aquamarine;
+    background-color: rgb(99, 201, 167);
+}
+
+h1{
+    text-align: center;
+}
+
+.signIn {
+
+    margin-top: 5%;
+    margin-left: 10%;
+    border: 2px solid black;
+}
+
+#un {
+    border: 2px solid pink;
+}
+
+#pw {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 2px solid blue;
+}
+
+#footer {
+    display: flex;
+
 }
