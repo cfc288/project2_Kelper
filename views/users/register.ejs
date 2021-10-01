@@ -1,45 +1,88 @@
 <%- include('../partials/header.ejs') %>
 
-	<h1>Register A New User</h1>
-	<form action="/users/register" method="POST">
-		<fieldset>
-			<label for="username">Username:</label>
-			<input type="text" name="username" id="username">
-		</fieldset>
+<h1>Register A New User</h1>
 
+<div>
+	<form class="row g-3" action="/users/register" method="POST">
 
-		
-		<fieldset>
-			<label for="company">Company:</label>
-			<input type="text" name="company" id="company">
-		</fieldset>
-		<fieldset>
-			<label for="location">City your company is located in:</label>
-			<input type="text" name="location" id="location">
-		</fieldset>
-		<fieldset>
-			<label for="employeeTitle">Job Title:</label>
-			<input type="text" name="employeeTitle" id="employeeTitle">
-		</fieldset>
+		<div class="username">
+			<fieldset class="mb-3">
+				<label class="form-label" for="username">Username:</label>
+				<input type="text" name="username" id="username"
+				class="form-control">
+			</fieldset>
+		</div>
 
 
 
-		<fieldset>
-			<label for="email">Email:</label>
-			<input type="text" name="email" id="email">
-		</fieldset>
-		<fieldset>
-			<label for="verifyEmail">Verify Email:</label>
-			<input type="email" name="verifyEmail" id="verifyEmail">
-		</fieldset>
-		<fieldset>
-			<label for="password">Password:</label>
-			<input type="password" name="password" id="password">
-		</fieldset>
-		<fieldset>
-			<label for="verifyPassword">Verify Password:</label>
-			<input type="password" name="verifyPassword" id="verifyPassword">
-		</fieldset>
-		<input type="submit" value="Sign Up">
+		<div class="row mb-3 email">
+			<div class="col">
+			<fieldset>
+				<label for="email" class="form-label"> Email:
+				</label>
+
+				<input type="text" name="email" id="email" class="form-control">
+			</fieldset>
+			</div>
+			<div class="col">
+			<fieldset>
+				<label for="verifyEmail" class="form-label"> Verify Email:</label>
+				
+				<input type="email" name="verifyEmail" id="verifyEmail" class="form-control">
+			</fieldset>
+			</div>
+		</div>
+
+
+
+		<div class="row mb-3 email">
+			<div class="col">
+			<fieldset>
+				<label class="form-label" for="password"> Password: </label>
+
+				<input class="form-control" type="password" name="password" id="password">
+			</fieldset>
+			</div>
+
+			<div class="col">
+			<fieldset>
+				 <label class="form-label" for="verifyPassword">Verify Password:</label>
+				<input type="password" class="form-control" name="verifyPassword" id="verifyPassword">
+			</fieldset>
+			</div>
+		</div>
+
+<div class="userDetails">
+<h5>User Job Information:</h5>
+		<div class="company">
+			<fieldset>
+				<label class="form-label" for="company">Company:</label>
+				<input type="text" name="company" id="company" class="form-control">
+			</fieldset>
+		</div>
+
+		<div class="location">
+			<fieldset>
+				<label class="form-label" for="location">City and State your company is located in:</label>
+				<input type="text" name="location" id="location"
+				placeholder="City, State" class="form-control"
+				>
+			</fieldset>
+		</div>
+
+		<div class="employeeTitle">
+			<fieldset>
+				<label class="form-label" for="employeeTitle"> Job Title:</label>
+				<input type="text" name="employeeTitle" id="employeeTitle" class="form-control">
+			</fieldset>
+		</div>
+</div>
+
+		<div class="submitButton">
+		<input type="submit" value="Sign Up" type="button" class="btn btn-primary btn-lg">
+		</div>
+
 	</form>
+
+</div>
 <%- include('../partials/footer.ejs') %>

@@ -65,7 +65,7 @@ router.get('/:id', (req, res) => {
     //all the console logs to figure out how to display everything!!!!  
     console.log('foundClient.review: ', foundClient.review)
     console.log('foundClient.review[0].incidentReport: ', foundClient.review[0].incidentReport)
-    console.log('review: ', review)
+    
 
 
     res.render('clientpage.ejs', {

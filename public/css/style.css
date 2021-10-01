@@ -9,26 +9,55 @@ body{
 h1{
     text-align: left;
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 1%;
     color: white;
     font-family: 'Stick No Bills', sans-serif;   
 }
 
+
+/* sign in page */
 .signIn {
     margin-top: 5%;
     margin-left: 10%;
     border: 2px solid black;
+    width: 700px;
+    background: rgb(99, 201, 167);
+    padding: 20px 30px;
 }
 
-#un {
-    border: 2px solid pink;
+/* registration page */
+.username {
+    width: 675px;
+    padding: 20px 30px;
 }
 
-#pw {
+.email {
+    width: 700px;
+    padding: 0 30px;
+}
+
+.userDetails {
+    width: 700px;
+    padding: 20px 30px;
+}
+
+.userDetails {
     margin-top: 5%;
-    margin-bottom: 5%;
-    border: 2px solid blue;
 }
+
+.submitButton {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+
+
+
+
+
+
+
+
 
 #footer {
     display: flex;
