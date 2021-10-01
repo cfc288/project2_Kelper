@@ -4,6 +4,7 @@ const router = express.Router()
 
 const Client = require('../models/client')
 
+
 const authRequired = (req, res, next) => {
 	if (req.session.currentUser) {
 		next()
@@ -12,6 +13,17 @@ const authRequired = (req, res, next) => {
 		res.send('You must be logged in to do that!')
 	}
 }
+
+
+// //where does this go? In a route?
+// function getReviewsWithPosts(username){
+//   return User.findOne({ username: username })
+//     .populate('review').exec((err, Incident) => {
+//       console.log("Populated User " + Incident);
+//     })
+// }
+
+
 
 //index route
 // set up index list all of the clients
@@ -26,6 +38,12 @@ router.get('/index', (req, res) => {
 
 })
 
+  
+  // const timestamp = new Date()
+  // res.send(`${timestamp}`)
+  //can i use Date.now() ?
+  //look at later to implement time
+  //https://phoenixnap.com/kb/how-to-get-the-current-date-and-time-javascript 
 
 
 // set up NEW route 
@@ -38,23 +56,41 @@ router.get('/new', (req, res) => {
 
 // SHOW route
 router.get('/:id', (req, res) => {
-  Client.findById(req.params.id, (error, foundClient) => {
-    console.log(foundClient)
-    res.render('clientpage.ejs', { client: foundClient })
+    // console.log('employeeData: ', employeeData)
+    Client.findById(req.params.id).populate({path:'review', model:'Incident', 
+    populate:{path:'employeeData', model:'User'}
+  }).exec( 
+    (error, foundClient, company, location, createdDate,lastUpdated, userTitle, review) => {
+
+    //all the console logs to figure out how to display everything!!!!  
+    console.log('foundClient.review: ', foundClient.review)
+    console.log('foundClient.review[0].incidentReport: ', foundClient.review[0].incidentReport)
+    console.log('review: ', review)
+
+
+    res.render('clientpage.ejs', {
+      foundClient: foundClient, 
+      review: foundClient.review[0].incidentReport, 
+      company: foundClient.review[0].employeeData.company,  
+      location: foundClient.review[0].employeeData.location,
+      userTitle: foundClient.review[0].employeeData.employeeTitle,
+      createdDate: foundClient.review[0].createdAt,
+      lastUpdated: foundClient.review[0].updatedAt,
+      
+
+    })
+
   })
 })
+
+//foundClient.review[i] 
 
 
 // set up POST ROUTE "Create"
 router.post('/index', (req, res) => {
-	// users can only add fruit if they're signed in
 	if (req.session.currentUser) {
-	//   if (req.body.readyToEat === "on") {
-	//     req.body.readyToEat = true
-	//   } else {
-	//     req.body.readyToEat = false
-	//   }
-	//   console.log(req.body)
+
+	  console.log(req.body)
 	  
 	  Client.create(req.body, (error, createdClient) => {
 	    if (error){
@@ -69,6 +105,8 @@ router.post('/index', (req, res) => {
 		res.send("You must be logged in to do that!")
 	}
 })
+
+
 
 
 // setting up our DELETE route
@@ -95,7 +133,7 @@ router.get('/:id/edit', authRequired, (req, res) => {
       res.send(error)
     } else {
       res.render('edit.ejs', {
-        client: foundClient,
+        foundClient: foundClient,
       })
     }
   })
@@ -104,8 +142,7 @@ router.get('/:id/edit', authRequired, (req, res) => {
 
 //"update" route
 router.put('/:id', (req, res) => {
-
-  // makes route update the model
+    // makes route update the model
   Client.findByIdAndUpdate(
     req.params.id, 
     req.body,
@@ -123,5 +160,13 @@ router.put('/:id', (req, res) => {
       }
     })
 })
+
+
+
+
+
+
+
+
 
 module.exports = router

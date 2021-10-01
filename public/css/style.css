@@ -2,12 +2,19 @@ body{
     background-color: rgb(99, 201, 167);
 }
 
+.header {
+    background: black;
+}
+
 h1{
-    text-align: center;
+    text-align: left;
+    margin-top: 5%;
+    margin-left: 5%;
+    color: white;
+    font-family: 'Stick No Bills', sans-serif;   
 }
 
 .signIn {
-
     margin-top: 5%;
     margin-left: 10%;
     border: 2px solid black;

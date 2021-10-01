@@ -1,28 +1,88 @@
 <%- include('./partials/header.ejs') %>
 
 
-    <h1>Index Page</h1>          
-    
 
+<div class="header">
+    <h1>Kelper</h1>   
+  </div>       
+
+
+<form action="/clients/new">
+<input id="button" class="btn btn-dark"
+type='submit' value="New Client">
+
+<div class="btn-group">
+  
+  <button type="button" class="btn btn-secondary">Reference</button>
+  
+  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
+  
+  <span class="visually-hidden">Toggle Dropdown</span>
+  
+</button>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+  <li>
+    <a class="dropdown-item" href="#">Action</a>
+  </li>
+  <li>
+    <a class="dropdown-item" href="#">Another action</a>
+  </li>
+  <li>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </li>
+  <li>
+    <hr class="dropdown-divider">
+  </li>
+  <li>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </li>
+  </ul>
+  
+</div>
+
+<br/>
+<br/>
+<br/>
+
+<div>
+
+
+
+
+</div>
+
+
+</form>
     <ul>
       <% for (let i = 0; i < clients.length; i++) { %>
         <li>
-          <p>Client Name:
-          <a href="/clients/<%=clients[i].id%>"> <%=clients[i].clientName%> </a>
-          </p>
-      
-          <p>Incident Report: <br/>
-          <%= clients[i].review %> </p>
+          <p><a href="/clients/<%=clients[i].id%>"> <%=clients[i].clientName%> </a>
+&nbsp &nbsp
+          <br/>
+          Location:   
+          <br/>
+          Date of Incident: 
+          <br/>
+          Incident Report: 
+          <br/>
+          Company Name:   
+          <br/>
+          Employee Title:   
+          <br/>
+
+          <p>take out -> <%= clients[i].review %> </p>
+        </p>
 
         </li>
         <% } %>
     </ul>
    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
-<form action="/clients/new">
-<input id="button" class="btn btn-dark"
-type='submit' value="New Client">
-</form>
-    
 
-<%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %>

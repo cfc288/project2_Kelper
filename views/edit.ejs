@@ -3,19 +3,19 @@
 
     <h1>Edit Client Page</h1>
 
-    <form action="/clients/<%= client.id %>?_method=PUT" method="POST">
+    <form action="/clients/<%= foundClient.id %>?_method=PUT" method="POST">
       Client Name: 
         <input 
             type="text" 
             name="clientName" 
-            value="<%= client.clientName %>" 
+            value="<%= foundClient.clientName %>" 
         /> 
         <br/>
       Incident Report:  
         <input 
             type="text" 
             name="review"
-            value="<%= client.review %>"
+            value="<%= foundClient.review %>"
         /> 
         <br/>
     
@@ -26,4 +26,4 @@
     </form>
 
 
-<%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %>

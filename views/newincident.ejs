@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs') %>
+
+
+<h1>Add a new incident</h1> 
+
+
+<form action="/incidents/newI/client/<%= clientId %>" method="POST">
+
+        New Incident: <input type="text" name="incidentReport" value=""> <br/>
+
+        <!-- Review:<input type="text" name="review" value="review"> <br/> -->
+        
+
+        <input type="submit" value="Create Incident" />
+</form>  
+
+
+
+<%- include('./partials/footer.ejs') %>

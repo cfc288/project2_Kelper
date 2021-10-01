@@ -1,0 +1,14 @@
+
+
+Edit client button from show page:
+
+<form action="/clients/<%= foundClient.id %>/edit">
+<input id="button"
+type='submit' value="Edit All">
+</form>
+
+
+
+---------------------
+
+

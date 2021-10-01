@@ -109,6 +109,9 @@ app.use('/clients', clientController)
 const userController = require('./controllers/userController')
 app.use('/users', userController)
 
+const incidentController = require('./controllers/incidentController')
+app.use('/incidents', incidentController)
+
 
 
 app.listen(process.env.PORT, () => {
