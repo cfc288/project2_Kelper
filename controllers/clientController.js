@@ -16,10 +16,6 @@ const authRequired = (req, res, next) => {
 
 
 
-
-
-
-
 //index route
 // set up index list all of the clients
 router.get('/index', (req, res) => {
@@ -82,19 +78,16 @@ router.get('/:id', (req, res) => {
     (error, foundClient, company, location, createdDate, userTitle, lastUpdated, review) => {
 
     //all the console logs to figure out how to display everything!!!!  
-    console.log('foundClient: ', foundClient)
+    // console.log('foundClient: ', foundClient)
     console.log('foundClient.review: ', foundClient.review)
-    console.log('foundClient.review[0]: ', foundClient.review[0])
-    console.log('foundClient.review[0].incidentReport: ', foundClient.review[0].incidentReport)
-    console.log('foundClient.review[1].incidentReport: ', foundClient.review[1].incidentReport)
-    console.log('foundClient.review.length: ', foundClient.review.length)
+    // console.log('foundClient.review[0]: ', foundClient.review[0])
+    // console.log('foundClient.review[0].incidentReport: ', foundClient.review[0].incidentReport)
+    // console.log('foundClient.review[1].incidentReport: ', foundClient.review[1].incidentReport)
+    // console.log('foundClient.review.length: ', foundClient.review.length)
 
-    if (foundClient.review.length >= 1)
+    if (foundClient.review.length >= 1 && foundClientReview.length >=1 )
     {
       console.log("more than 1") 
-
-
-
       res.render('clientpage.ejs', 
       {
           foundClient: foundClient, 
