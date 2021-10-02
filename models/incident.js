@@ -3,8 +3,7 @@ const { Schema , model } = mongoose
 
 
 const incidentSchema = new Schema({
-    //https://phoenixnap.com/kb/how-to-get-the-current-date-and-time-javascript
-    //date: { required: true},
+    
 
     employeeData: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 
