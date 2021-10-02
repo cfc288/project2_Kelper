@@ -85,7 +85,8 @@ router.get('/:id', (req, res) => {
     // console.log('foundClient.review[1].incidentReport: ', foundClient.review[1].incidentReport)
     // console.log('foundClient.review.length: ', foundClient.review.length)
 
-    if (foundClient.review.length >= 1 || foundClientReview.length >=1 )
+
+    if (foundClient.review.length >= 1  )
     {
       console.log("more than 1") 
       res.render('clientpage.ejs', 
@@ -109,7 +110,8 @@ router.get('/:id', (req, res) => {
                                   })
                                 
                                           
-    }else{res.render('clientpage.ejs',{foundClient: foundClient,})}
+    }else{ console.log('foundClient: ', foundClient)
+      res.render('clientpage.ejs',{foundClient: foundClient,})}
 
                                })
 })

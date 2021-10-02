@@ -21,8 +21,9 @@
 
      
 <div class="function">
-<% if (foundClientReview.length >= 1 ) %>
-<% { %>
+       <%= console.log('foundClient.review.legnth.ejs ', foundClient.review.length) %>
+
+<% if (foundClient.review.length >= 1){ %>
 
        
        <p> Company:<br/>
@@ -50,7 +51,7 @@
        </p>
      
 
-       <% } %>
+       <% } else { %> <p></p> <% }  %>
 </div>
 
         <br/>

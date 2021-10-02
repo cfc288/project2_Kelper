@@ -22,7 +22,7 @@ const incidentSchema = new Schema({
     // ref: 'User'
     // },
 
-    incidentReport: {type: String,},
+    incidentReport: {type: String, default: 'none'},
 
 }, 
 
