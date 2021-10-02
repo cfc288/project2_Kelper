@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000
 //for cookies 
 //install npm i express-sessions
 const session = require('express-session')
-require('dotenv').config() 
+
 
 //calling the database to the server
 const Client = require("./models/client")
@@ -52,11 +52,13 @@ app.use(methodOverride('_method'))
 //adds css files
 app.use(express.static('public'))
 
+
+// session with our secret
 const SESSION_SECRET = process.env.SESSION_SECRET
 console.log('Here\'s SESSION_SECRET')
 console.log(SESSION_SECRET)
 
-// session with our secret
+
 app.use(
     session({
       secret: SESSION_SECRET,
