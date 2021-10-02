@@ -3,7 +3,7 @@
  Kelper also allows companies to hold clients accountable for their actions.
 
 
-
+<a href="https://kelper.herokuapp.com/"> Link to Deployed Website on Heroku </a>
 
 
 
@@ -34,9 +34,9 @@ MVP -
 [x] - Adhere to the MVC file structure: Models, Views, Controllers	
 [x] - At least one model with all 7 RESTful routes and full CRUD.	
 [x] - A git repository not inside the class repo.	
-[] - Be deployed online and accessible to the public via Heroku	
-[] - A README.md file with explanations of the technologies used, the approach was taken, unsolved problems, [] user stories, and notes to yourself so you can come back to your project later in the course and be able to pick up your train of thought, etc	
-[] - Have a link to your hosted working app in the README.md file in your github repo	
+[x] - Be deployed online and accessible to the public via Heroku	
+[x] - A README.md file with explanations of the technologies used, the approach was taken, unsolved problems, user stories, and notes to yourself so you can come back to your project later in the course and be able to pick up your train of thought, etc	
+[x] - Have a link to your hosted working app in the README.md file in your github repo	
 
 
 
@@ -47,9 +47,12 @@ Stretch Goals
 [x] - use a framework like bootstrap
 [x] - have my login functionalities working
 [] - add more security around logged in users
-(would like to do a drop down/hide method wrapped into the company name for each review made)
 [] - on index page will try to make it just 30 comments per page with the ability to move to 'next page'
 on client page base employee title off user tracking, might be a stretch goal])
-[] - Extra Stretch Goal (if i finished everything and the stretch goals)
-create a profile page where user can manage their comments/title/company ect
+[] - create a profile page where user can manage their comments/title/company ect
 [] - can delete individual comments without deleting all of the client
+[] - have comments be able to be sorted by location, company, client name (alphabetically asscending and descending)
+[] - 
+[] - 
+[] - 
+[] - 

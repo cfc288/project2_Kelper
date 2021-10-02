@@ -3,17 +3,20 @@
 
 <h1>Add a new incident</h1> 
 
+<div class="form-group newIncident">
+    <form action="/incidents/newI/client/<%= clientId %>" method="POST" >
+    New Incident: 
+    <br/>
+    <input type="text" name="incidentReport" value="" class="form-control" > 
 
-<form action="/incidents/newI/client/<%= clientId %>" method="POST">
-
-        New Incident: <input type="text" name="incidentReport" value=""> <br/>
-
-        <!-- Review:<input type="text" name="review" value="review"> <br/> -->
-        
-
-        <input type="submit" value="Create Incident" />
-</form>  
-
+    <small id="emailHelp" class="form-text text-muted">Please be as detailed as possible.</small>
+<br/>
+<br/>
+<br/>
+    <input type="submit" value="Create Incident">
+    
+    </form>  
+</div>
 
 
 <%- include('./partials/footer.ejs') %>

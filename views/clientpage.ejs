@@ -5,13 +5,21 @@
 
 
 
-       <div>
-       <div>
+       
+       <div class="header">
        <h2> <%=foundClient.clientName %> </h2>
        </div>
+       <div class="btn-group">
+              &nbsp &nbsp
        <form action="/clients/<%= foundClient.id %>?_method=DELETE" method="POST">
        <input class="btn btn-danger" id="button" type="submit" value="Delete Client">
        </form>
+       &nbsp &nbsp
+       <form action="/incidents/newI/client/<%= foundClient.id %>">
+       <input  class="btn btn-primary btn-lg" id="button"
+       type='submit' value="New Incident">
+       </form>
+
        </div> 
         
         
@@ -25,31 +33,32 @@
 
 <% if (foundClient.review.length >= 1){ %>
 
+       <div class="newIncident">
+
+       <p>Last Updated on:
+              <br/>
+              <%= lastUpdated %>
+       </p>
        
-       <p> Company:<br/>
+       <p>Company:
               <%= company %>
        </p>
 
 
-       <p> Location:<br/>
+       <p>Location:<br/>
               <%= location %>
        </p>
 
 
-       <p> Employee Title:<br/>
+       <p>Employee Title:<br/>
               <%= userTitle %>
        </p>
 
-
-       <p> Review: <br/>
+       <p>Review:<br/>
               <%= review %> 
        </p>
 
-
-       <p> Last Updated on: <br/>
-              <%= lastUpdated %>
-       </p>
-     
+       </div>
 
        <% } else { %> <p></p> <% }  %>
 </div>
@@ -60,10 +69,7 @@
 
 
 
-        <form action="/incidents/newI/client/<%= foundClient.id %>">
-       <input  class="btn btn-primary btn-lg" id="button"
-       type='submit' value="New Incident">
-       </form>
+    
 
        <br/>
 

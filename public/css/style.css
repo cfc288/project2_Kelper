@@ -55,6 +55,8 @@ h2{
     margin-top: 5%;
     text-align: center;
     border-bottom: 3px solid black;
+    color: white;
+    
 }
 
 
@@ -66,6 +68,7 @@ h2{
     border: 2px solid black;
     width: 50%;
     margin-left: 1%;
+    padding: 20px 30px;
 }
 
 
@@ -77,4 +80,16 @@ h2{
 #footer {
     display: flex;
 
+}
+
+p {
+    font-family: 'Scheherazade New', serif;
+    font-size: 20px;
+}
+
+.newIncident {
+    border: 2px solid black;
+    width: 700px;
+    background: rgb(99, 201, 167);
+    padding: 20px 30px;
 }
