@@ -1,17 +1,33 @@
 <%- include('./partials/header.ejs') %>
 
+        <div class="backgroundBlack">
+        <h1 class="header">Add a new client</h1> 
+        </div>
 
-        <h1>Add a new client</h1> 
+        <br/>
 
-
-        <form action="/clients/index" method="POST">
-                Name: <input type="text" name="clientName" value="clientName"> <br/>
-                
-
-                <input type="submit" value="Create Client" />
-        </form>    
+        <div class="mb-3 newDiv">
+        <form class="form-label" action="/clients/index" method="POST">
+        Name: <input class="form-control" type="text" name="clientName" value=""> 
         
-       
+
+
+        <br/>
+
+        <input type="submit" value="Create Client" />
+        </form>   
+        </div> 
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 <%- include('./partials/footer.ejs') %>
 
 

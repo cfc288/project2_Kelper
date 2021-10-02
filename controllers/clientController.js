@@ -15,45 +15,52 @@ const authRequired = (req, res, next) => {
 }
 
 
-// //where does this go? In a route?
-// function getReviewsWithPosts(username){
-//   return User.findOne({ username: username })
-//     .populate('review').exec((err, Incident) => {
-//       console.log("Populated User " + Incident);
-//     })
-// }
+
+
 
 
 
 //index route
 // set up index list all of the clients
 router.get('/index', (req, res) => {
-
-  Client.find({}, (err, allClients) => {
-    // console.log(allClients)
-    res.render('index.ejs', {
-      clients: allClients
-    })
-  })
-
+  Client.find({}, (err, allClients) => { 
+      res.render('index.ejs', {
+        clients: allClients
+      })
+     }
+  ) 
 })
+      // Client.findById(req.params.id).populate({path:'review', model:'Incident', 
+      // populate:{path:'employeeData', model:'User'}
+      // }).exec( 
+      // (error, clients, company, location, createdDate, userTitle, lastUpdated, review) => {
+  
 
 
-// <p> Company:<br/>
-// <%= company %>
-// </p>
 
-// <p> Location:<br/>
-// <%= location %>
-// </p>
+      //all the console logs to figure out how to display everything!!!!  
+      // console.log('allClients', allClients)
+      // console.log('allClients.review: ', allClients[0].review)
+      // console.log('allClients.review[0].incidentReport: ', allClients.review[0])
+        
+      // for (let i = 0; i < allClients.length; i++) { 
 
-// <p> Employee Title:<br/>
-// <%= userTitle %>
-// </p>
-
-// <p> Last Updated on: <br/>
-// <%= lastUpdated %>
-// </p>
+      // if (allClients[i].review.length == 1)
+      // {
+      //   res.render('index.ejs', {
+      //       clients: allClients, 
+            // review: foundClient.review[0].incidentReport, 
+            // company: foundClient.review[0].employeeData.company,  
+            // location: foundClient.review[0].employeeData.location,
+            // userTitle: foundClient.review[0].employeeData.employeeTitle,
+            // createdDate: foundClient.review[0].createdAt,
+            // lastUpdated: foundClient.review[0].updatedAt,        
+  //                                   })
+                           
+  //     }else{res.render('index.ejs',{clients: clients})}
+  //     })
+  //   }
+  // })
 
 
 
@@ -65,22 +72,34 @@ router.get('/new', (req, res) => {
 
 
 
+
 // SHOW route
 router.get('/:id', (req, res) => {
-    // console.log('employeeData: ', employeeData)
+    console.log('Client: ', Client)
     Client.findById(req.params.id).populate({path:'review', model:'Incident', 
     populate:{path:'employeeData', model:'User'}
   }).exec( 
     (error, foundClient, company, location, createdDate, userTitle, lastUpdated, review) => {
 
     //all the console logs to figure out how to display everything!!!!  
-    // console.log('foundClient.review: ', foundClient.review)
-    // console.log('foundClient.review[0].incidentReport: ', foundClient.review[0])
+    console.log('foundClient: ', foundClient)
+    console.log('foundClient.review: ', foundClient.review)
+    console.log('foundClient.review[0]: ', foundClient.review[0])
+    console.log('foundClient.review[0].incidentReport: ', foundClient.review[0].incidentReport)
+    console.log('foundClient.review[1].incidentReport: ', foundClient.review[1].incidentReport)
+    console.log('foundClient.review.length: ', foundClient.review.length)
 
-    if (foundClient.review.length === 1)
+    if (foundClient.review.length >= 1)
     {
-      res.render('clientpage.ejs', {
+      console.log("more than 1") 
+
+
+
+      res.render('clientpage.ejs', 
+      {
           foundClient: foundClient, 
+
+          foundClientReview: foundClient.review,
 
           review: foundClient.review[0].incidentReport, 
 
@@ -95,14 +114,14 @@ router.get('/:id', (req, res) => {
           lastUpdated: foundClient.review[0].updatedAt,
           
                                   })
-                  
+                                
                                           
     }else{res.render('clientpage.ejs',{foundClient: foundClient,})}
 
                                })
 })
 
-//foundClient.review[i] 
+
 
 
 // set up POST ROUTE "Create"

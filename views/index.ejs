@@ -13,31 +13,29 @@ type='submit' value="New Client">
 
 <div class="btn-group">
   
-  <button type="button" class="btn btn-secondary">Reference</button>
-  
-  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
-  
-  <span class="visually-hidden">Toggle Dropdown</span>
-  
-</button>
+    <button type="button" class="btn btn-secondary">Reference</button>
+    
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
+    <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
 
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-  <li>
-    <a class="dropdown-item" href="#">Action</a>
-  </li>
-  <li>
-    <a class="dropdown-item" href="#">Another action</a>
-  </li>
-  <li>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </li>
-  <li>
-    <hr class="dropdown-divider">
-  </li>
-  <li>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </li>
-  </ul>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+      <li>
+        <a class="dropdown-item" href="#">Action</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="#">Another action</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </li>
+    </ul>
   
 </div>
 
@@ -48,21 +46,25 @@ type='submit' value="New Client">
 <div>
 
 
-
-
 </div>
-
-
 </form>
-    <ul>
-      <% for (let i = 0; i < clients.length; i++) { %>
-        <li>
-          <a href="/clients/<%=clients[i].id%>"> <%=clients[i].clientName%></a>
-&nbsp &nbsp
 
-        </li>
-        <% } %>
-    </ul>
+        <ul>
+          <br/>
+          <% for (let i = 0; i < clients.length; i++) { %>
+            <li>
+             <h5> <%=clients[i].clientName%> </h5>
+
+              <a class="btn btn-primary btn-lg"
+              href="/clients/<%=clients[i].id%>"> Client Information
+            </a>
+            </li>
+            <br/>
+            <br/>
+            <br/>
+            <% } %>
+            
+        </ul>
    
     <br/>
     <br/>

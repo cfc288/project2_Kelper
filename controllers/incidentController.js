@@ -29,6 +29,7 @@ router.get('/newI/client/:id', (req, res) => {
 
 //post
 router.post('/newI/client/:id', (req,res) => {
+    console.log('currentUder: ', req.session.currentUser)
        const newIncident = {
            employeeData: req.session.currentUser._id, 
            incidentReport: req.body.incidentReport

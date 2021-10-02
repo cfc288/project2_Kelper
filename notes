@@ -11,4 +11,30 @@ type='submit' value="Edit All">
 
 ---------------------
 
+<% console.log('foundClientReview ', foundClientReview) %>
 
+<% console.log('foundClient ', foundClient) %>
+
+<% console.log('foundClientReview ', foundClientReview) %>
+
+<% console.log('foundClientReview.length ', foundClientReview.length) %>
+
+<% console.log('foundClientReview[1].employeeData ', foundClientReview[1].employeeData) %>
+
+
+<% console.log('foundClientReview[1].employeeData.company ', foundClientReview[1].employeeData.company) %>
+
+--------------------------
+
+
+
+
+
+
+<% let arrayLength = foundClientReview.length %>
+
+<% for (let x = 0; x < arrayLength; x++) %>
+<% { %>
+<% console.console.log(foundClientReview[x]); %>
+
+<% }} %>

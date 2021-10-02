@@ -51,12 +51,27 @@ h1{
 }
 
 
+h2{
+    margin-top: 5%;
+    text-align: center;
+    border-bottom: 3px solid black;
+}
 
 
+.backgrounBlack {
+    background: black;
+}
+
+.newDiv {
+    border: 2px solid black;
+    width: 50%;
+    margin-left: 1%;
+}
 
 
-
-
+.function{
+    margin-left: 2%;
+}
 
 
 #footer {

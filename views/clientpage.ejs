@@ -5,20 +5,26 @@
 
 
 
-
-
-
-
+       <div>
        <div>
        <h2> <%=foundClient.clientName %> </h2>
+       </div>
        <form action="/clients/<%= foundClient.id %>?_method=DELETE" method="POST">
-       <input type="submit" value="Delete All">
+       <input class="btn btn-danger" id="button" type="submit" value="Delete Client">
        </form>
        </div> 
         
         
-      
-<% if (foundClient.review.length === 1){ %>
+<br/>
+<br/>
+<br/>
+
+     
+<div class="function">
+<% if (foundClientReview.length >= 1) %>
+<% { %>
+
+       
        <p> Company:<br/>
               <%= company %>
        </p>
@@ -42,16 +48,19 @@
        <p> Last Updated on: <br/>
               <%= lastUpdated %>
        </p>
+     
 
-      <% } %>
-
+       <% } %>
+</div>
 
         <br/>
         <br/>
         <br/>
+
+
 
         <form action="/incidents/newI/client/<%= foundClient.id %>">
-       <input id="button"
+       <input  class="btn btn-primary btn-lg" id="button"
        type='submit' value="New Incident">
        </form>
 
@@ -59,7 +68,7 @@
 
        
 
-        <a href="/clients/index"> Back to Main Page</a>
+       
 
 
         <%- include('./partials/footer.ejs') %>
