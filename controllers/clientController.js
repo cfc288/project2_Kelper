@@ -30,7 +30,7 @@ const authRequired = (req, res, next) => {
 router.get('/index', (req, res) => {
 
   Client.find({}, (err, allClients) => {
-    console.log(allClients)
+    // console.log(allClients)
     res.render('index.ejs', {
       clients: allClients
     })
@@ -38,12 +38,23 @@ router.get('/index', (req, res) => {
 
 })
 
-  
-  // const timestamp = new Date()
-  // res.send(`${timestamp}`)
-  //can i use Date.now() ?
-  //look at later to implement time
-  //https://phoenixnap.com/kb/how-to-get-the-current-date-and-time-javascript 
+
+// <p> Company:<br/>
+// <%= company %>
+// </p>
+
+// <p> Location:<br/>
+// <%= location %>
+// </p>
+
+// <p> Employee Title:<br/>
+// <%= userTitle %>
+// </p>
+
+// <p> Last Updated on: <br/>
+// <%= lastUpdated %>
+// </p>
+
 
 
 // set up NEW route 
@@ -60,27 +71,35 @@ router.get('/:id', (req, res) => {
     Client.findById(req.params.id).populate({path:'review', model:'Incident', 
     populate:{path:'employeeData', model:'User'}
   }).exec( 
-    (error, foundClient, company, location, createdDate,lastUpdated, userTitle, review) => {
+    (error, foundClient, company, location, createdDate, userTitle, lastUpdated, review) => {
 
     //all the console logs to figure out how to display everything!!!!  
-    console.log('foundClient.review: ', foundClient.review)
-    console.log('foundClient.review[0].incidentReport: ', foundClient.review[0].incidentReport)
-    
+    // console.log('foundClient.review: ', foundClient.review)
+    // console.log('foundClient.review[0].incidentReport: ', foundClient.review[0])
 
+    if (foundClient.review.length === 1)
+    {
+      res.render('clientpage.ejs', {
+          foundClient: foundClient, 
 
-    res.render('clientpage.ejs', {
-      foundClient: foundClient, 
-      review: foundClient.review[0].incidentReport, 
-      company: foundClient.review[0].employeeData.company,  
-      location: foundClient.review[0].employeeData.location,
-      userTitle: foundClient.review[0].employeeData.employeeTitle,
-      createdDate: foundClient.review[0].createdAt,
-      lastUpdated: foundClient.review[0].updatedAt,
-      
+          review: foundClient.review[0].incidentReport, 
 
-    })
+          company: foundClient.review[0].employeeData.company,  
 
-  })
+          location: foundClient.review[0].employeeData.location,
+
+          userTitle: foundClient.review[0].employeeData.employeeTitle,
+
+          createdDate: foundClient.review[0].createdAt,
+
+          lastUpdated: foundClient.review[0].updatedAt,
+          
+                                  })
+                  
+                                          
+    }else{res.render('clientpage.ejs',{foundClient: foundClient,})}
+
+                               })
 })
 
 //foundClient.review[i] 
