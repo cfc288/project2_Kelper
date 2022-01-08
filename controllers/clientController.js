@@ -19,44 +19,32 @@ const authRequired = (req, res, next) => {
 //index route
 // set up index list all of the clients
 router.get('/index', (req, res) => {
-  Client.find({}, (err, allClients) => { 
+  Client.find({}).populate(
+    {
+      path:'review', 
+      model:'Incident',
+
+      populate:{path:'employeeData', model:'User'}
+
+    }
+  ).exec( (err, allClients, company, location, createdDate, userTitle, lastUpdated, review) => { 
+      console.log('allClients: ', allClients)
+
+      console.log('allClients.review: ', allClients.review)
+
+      console.log("allClients[0].review[0]: ", allClients[0].review)
+
+      console.log("allClients[0].review[0].employeeData: ", allClients[0].review[0].employeeData)
+
+
       res.render('index.ejs', {
         clients: allClients
       })
+
      }
   ) 
 })
-      // Client.findById(req.params.id).populate({path:'review', model:'Incident', 
-      // populate:{path:'employeeData', model:'User'}
-      // }).exec( 
-      // (error, clients, company, location, createdDate, userTitle, lastUpdated, review) => {
-  
-
-
-
-      //all the console logs to figure out how to display everything!!!!  
-      // console.log('allClients', allClients)
-      // console.log('allClients.review: ', allClients[0].review)
-      // console.log('allClients.review[0].incidentReport: ', allClients.review[0])
-        
-      // for (let i = 0; i < allClients.length; i++) { 
-
-      // if (allClients[i].review.length == 1)
-      // {
-      //   res.render('index.ejs', {
-      //       clients: allClients, 
-            // review: foundClient.review[0].incidentReport, 
-            // company: foundClient.review[0].employeeData.company,  
-            // location: foundClient.review[0].employeeData.location,
-            // userTitle: foundClient.review[0].employeeData.employeeTitle,
-            // createdDate: foundClient.review[0].createdAt,
-            // lastUpdated: foundClient.review[0].updatedAt,        
-  //                                   })
-                           
-  //     }else{res.render('index.ejs',{clients: clients})}
-  //     })
-  //   }
-  // })
+      
 
 
 
@@ -72,13 +60,18 @@ router.get('/new', (req, res) => {
 // SHOW route
 router.get('/:id', (req, res) => {
     console.log('Client: ', Client)
-    Client.findById(req.params.id).populate({path:'review', model:'Incident', 
-    populate:{path:'employeeData', model:'User'}
-  }).exec( 
-    (error, foundClient, company, location, createdDate, userTitle, lastUpdated, review) => {
+    Client.findById(req.params.id).populate(
+      {path:'review', model:'Incident', 
+      populate:
+        {path:'employeeData', model:'User'}
+      }
+    ).exec( 
+    (error, foundClient, 
+      // company, location, createdDate, userTitle, lastUpdated, review
+      ) => {
 
     //all the console logs to figure out how to display everything!!!!  
-    // console.log('foundClient: ', foundClient)
+    console.log('foundClient: ', foundClient)
     console.log('foundClient.review: ', foundClient.review)
     // console.log('foundClient.review[0]: ', foundClient.review[0])
     // console.log('foundClient.review[0].incidentReport: ', foundClient.review[0].incidentReport)
@@ -88,7 +81,7 @@ router.get('/:id', (req, res) => {
 
     if (foundClient.review.length >= 1  )
     {
-      console.log("more than 1") 
+      console.log("rencering") 
       res.render('clientpage.ejs', 
       {
           foundClient: foundClient, 

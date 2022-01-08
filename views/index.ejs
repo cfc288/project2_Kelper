@@ -55,6 +55,14 @@ type='submit' value="New Client">
             <li>
              <h5> <%=clients[i].clientName%> </h5>
 
+             <p> clients[i].reivew: 
+               <%= clients[i].review %>
+              <br />
+              <%= clients[i].review[i]%>
+              <br />
+              review.employeeData:
+               <%= clients[i].review.employeeData %> </p>
+
               <a class="btn btn-primary btn-lg"
               href="/clients/<%=clients[i].id%>"> Client Information
             </a>

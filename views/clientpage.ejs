@@ -32,7 +32,8 @@
        <%= console.log('foundClient.review.legnth.ejs ', foundClient.review.length) %>
 
 <% if (foundClient.review.length >= 1){ %>
-
+       
+       <% foundClient.review.forEach(review => { %>
        <div class="newIncident">
 
        <p>Last Updated on:
@@ -42,6 +43,9 @@
        
        <p>Company:
               <%= company %>
+              <br />
+              foundClient.review[0].employeeData.company:
+              <%= review.employeeData.company %>
        </p>
 
 
@@ -55,10 +59,12 @@
        </p>
 
        <p>Review:<br/>
-              <%= review %> 
+              <%= review.incidentReport %> 
        </p>
 
        </div>
+
+                    <% }) %>
 
        <% } else { %> <p></p> <% }  %>
 </div>
